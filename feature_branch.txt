@@ -5,4 +5,13 @@ flow branch
 
     $ git flow  feature start feature_branch
 when you finshed the feature branch
-    $ git flow feature finshe feature_branch
+    $ git flow feature finish feature_branch
+
+
+
+  
+ start release branch   
+        $ git flow release start  0.2.0
+        
+ finish 
+ 	        $ git flow release finish  0.2.0   
