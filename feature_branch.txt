@@ -1,0 +1,8 @@
+flow branch 
+1) flow branch 
+
+2) make a feature branchs
+
+    $ git flow  feature start feature_branch
+when you finshed the feature branch
+    $ git flow feature finshe feature_branch
