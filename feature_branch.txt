@@ -15,3 +15,12 @@ when you finshed the feature branch
         
  finish 
  	        $ git flow release finish  0.2.0   
+
+
+ start bugfix branch   
+        $  git flow bugfix start client_error
+        
+ finish 
+ 	        $   git flow bugfix finish client_error
+
+             
