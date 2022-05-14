@@ -12,21 +12,29 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: TextField(
-        maxLength: 20,
-        buildCounter: (context,
-            {int? currentLength, bool? isFocused, maxLength}) {
-          return AnimatedContainer(
-            duration: const Duration(seconds: 1),
-            height: 10,
-            width: 2.0 * (currentLength ?? 0 ~/ 2),
-            color: Colors.green[100],
-          );
-        },
-        decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.mail),
-            border: OutlineInputBorder(),
-            labelText: 'Mail'),
+      body: Column(
+        children: [
+          TextField(
+            maxLength: 20,
+            keyboardType: TextInputType.phone,
+            autofillHints: const [AutofillHints.email],
+            textInputAction: TextInputAction.next,
+            buildCounter: (context,
+                {int? currentLength, bool? isFocused, maxLength}) {
+              return AnimatedContainer(
+                duration: const Duration(seconds: 1),
+                height: 10,
+                width: 2.0 * (currentLength ?? 0 ~/ 2),
+                color: Colors.green[100],
+              );
+            },
+            decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.mail),
+                border: OutlineInputBorder(),
+                labelText: 'Mail'),
+          ),
+          TextField(),
+        ],
       ),
     );
   }
