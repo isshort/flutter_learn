@@ -19,8 +19,7 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
             keyboardType: TextInputType.phone,
             autofillHints: const [AutofillHints.email],
             textInputAction: TextInputAction.next,
-            buildCounter: (context,
-                {int? currentLength, bool? isFocused, maxLength}) {
+            buildCounter: (context, {int? currentLength, bool? isFocused, maxLength}) {
               return AnimatedContainer(
                 duration: const Duration(seconds: 1),
                 height: 10,
@@ -29,9 +28,7 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
               );
             },
             decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.mail),
-                border: OutlineInputBorder(),
-                labelText: 'Mail'),
+                prefixIcon: Icon(Icons.mail), border: OutlineInputBorder(), labelText: 'Mail'),
           ),
           TextField(),
         ],

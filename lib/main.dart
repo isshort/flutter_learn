@@ -6,6 +6,8 @@ import 'package:flutter_learn/101/indicator_learn.dart';
 import 'package:flutter_learn/101/page_view_learn.dart';
 import 'package:flutter_learn/101/stack_learn.dart';
 import 'package:flutter_learn/101/text_field_learn.dart';
+import 'package:flutter_learn/demos/color_demos_view.dart';
+import 'package:flutter_learn/demos/color_life_cycle_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,8 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData.dark().copyWith(
-          progressIndicatorTheme:
-              const ProgressIndicatorThemeData(color: Colors.white),
+          progressIndicatorTheme: const ProgressIndicatorThemeData(color: Colors.white),
           appBarTheme: const AppBarTheme(
             centerTitle: true,
             backgroundColor: Colors.transparent,
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
             elevation: 0,
             // backgroundColor: Colors.red,
           )),
-      home: const TextFieldLearn(),
+      home: const ColorLifeCycleView(),
     );
   }
 }
@@ -60,12 +61,10 @@ class ScaffoldLearn extends StatelessWidget {
         ElevatedButton(
             style: ElevatedButton.styleFrom(
                 primary: Colors.black,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10))),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
             onPressed: () {},
             child: Padding(
-              padding: const EdgeInsets.only(
-                  top: 20, bottom: 20, right: 20, left: 20),
+              padding: const EdgeInsets.only(top: 20, bottom: 20, right: 20, left: 20),
               child: Text(
                 'Click Me',
                 style: Theme.of(context).textTheme.headline6,
