@@ -18,7 +18,7 @@ class _ColorDemosState extends State<ColorDemos> {
   @override
   void didUpdateWidget(covariant ColorDemos oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.initialColor != _backgroundColor && widget.initialColor != null) {
+    if (widget.initialColor != _backgroundColor && widget.initialColor != null) {
       _updateColor(widget.initialColor!);
     }
   }
