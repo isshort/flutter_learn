@@ -1,6 +1,0 @@
-{
-  "appTitle": "cargo",
-  "@appTitle": {
-    "description": "The title of the application"
-  }
-}
