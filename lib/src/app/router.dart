@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/src/feature/home/home.dart';
-import 'package:flutter_learn/src/sample_feature/sample_item_details_view.dart';
-import 'package:flutter_learn/src/sample_feature/sample_item_list_view.dart';
+
 import 'package:flutter_learn/src/settings/settings_view.dart';
+
+import '../feature/page_view/page_view.dart';
 
 Route<dynamic> routeGenerate(RouteSettings routeSettings) {
   return MaterialPageRoute<void>(
@@ -15,7 +15,7 @@ Route<dynamic> routeGenerate(RouteSettings routeSettings) {
         //   return const SampleItemDetailsView();
         // case SampleItemListView.routeName:
         default:
-          return const HomePage();
+          return const PageViewCheck();
       }
     },
   );
