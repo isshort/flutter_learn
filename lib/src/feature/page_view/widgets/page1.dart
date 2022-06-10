@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Page1 extends StatelessWidget {
   const Page1({super.key});
@@ -10,8 +11,27 @@ class Page1 extends StatelessWidget {
         primary: true,
         title: const Text('Page1'),
       ),
-      body: Container(
-        color: Colors.blue,
+      body: Column(
+        children: [
+          Container(
+            color: Colors.blue,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              context.go('/page2');
+            },
+            child: const Text("Go To Page2"),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              context.go('/');
+            },
+            child: const Text("Go To Home"),
+          ),
+        ],
       ),
     );
   }

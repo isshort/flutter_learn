@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_learn/src/feature/password_cubit/password.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,6 +13,11 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(children: [
+          ElevatedButton(
+              onPressed: () {
+                context.go('/page1');
+              },
+              child: const Text("Go to Page1")),
           // const PasswordWithCubitField(),
           // const InputChip(label: Text('Input 1'), avatar: Icon(Icons.remove)),
           // ChoiceChip(label: Text('some other'), selected: true),
