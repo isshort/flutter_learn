@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/go_router/go_app.dart';
 import 'package:flutter_learn/src/core/locator/service_locator.dart';
+import 'package:flutter_learn/src/feature/material_3_demo/main.dart';
 
+import 'go_router/loading/app.dart';
 import 'src/app/app.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
@@ -11,5 +13,5 @@ Future<void> main() async {
   final settingsController = SettingsController(SettingsService());
   await settingsController.loadSettings();
   // runApp(MyApp(settingsController: settingsController));
-  runApp(const GoApp());
+  runApp(const Material3Demo());
 }

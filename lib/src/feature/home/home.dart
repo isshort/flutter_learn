@@ -13,6 +13,7 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(children: [
+          const SelectableText('Selectable Text'),
           ElevatedButton(
               onPressed: () {
                 context.go('/page1');
