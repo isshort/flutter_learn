@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'adaptive_navigation.dart';
+import '../adaptive_navigation.dart';
 
-import 'package:multiple_navigator/app/router/destination.dart' as my_des;
+import 'package:multiple_navigator/app/destination.dart' as my_des;
 
 class RootLayout extends StatelessWidget {
   const RootLayout({Key? key, required this.child, required this.currentIndex})
