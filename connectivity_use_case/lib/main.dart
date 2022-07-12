@@ -1,5 +1,4 @@
 import 'package:connectivity_use_case/example/example_change.dart';
-import 'package:connectivity_use_case/use_case/network_change_manger.dart';
 import 'package:connectivity_use_case/use_case/network_widget.dart';
 import 'package:flutter/material.dart';
 
