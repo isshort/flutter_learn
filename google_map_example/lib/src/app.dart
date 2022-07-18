@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_map_example/src/map/custom/custom_page_body.dart';
 import 'package:google_map_example/src/map/map_main.dart';
 import 'package:google_map_example/src/map/map_page.dart';
+import 'package:google_map_example/src/map/view/home_view.dart';
 
 import 'sample_feature/sample_item_details_view.dart';
 import 'sample_feature/sample_item_list_view.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
                     return const SampleItemDetailsView();
                   case SampleItemListView.routeName:
                   default:
-                    return const CustomPageBody();
+                    return const HomeView();
                 }
               },
             );
