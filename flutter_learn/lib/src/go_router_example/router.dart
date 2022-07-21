@@ -8,6 +8,8 @@ import 'package:flutter_learn/src/go_router_example/pages/go_logout.dart';
 import 'package:flutter_learn/src/go_router_example/pages/go_register.dart';
 import 'package:go_router/go_router.dart';
 
+import '../flutter_tips/tips.dart';
+
 class AppRouter {
   final AuthState authState;
 
@@ -18,7 +20,7 @@ class AppRouter {
         GoRoute(
           path: "/",
           builder: (BuildContext context, GoRouterState state) =>
-              const GoHomePage(),
+              const FlutterTips(),
         ),
         GoRoute(
           path: "/home1",
@@ -43,10 +45,10 @@ class AppRouter {
       ],
       redirect: (state) {
         // print("your state is ok $state");
-        final loggedIn = authState is AuthSuccess;
-        final loggingIn = state.subloc == '/login';
-        if (!loggedIn) return loggingIn ? null : '/login';
-        if (loggingIn) return '/';
+        // final loggedIn = authState is AuthSuccess;
+        // final loggingIn = state.subloc == '/login';
+        // if (!loggedIn) return loggingIn ? null : '/login';
+        // if (loggingIn) return '/';
         return null;
       });
 }
