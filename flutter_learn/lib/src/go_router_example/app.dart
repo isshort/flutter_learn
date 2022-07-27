@@ -11,6 +11,7 @@ class GoRouterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final router = AppRouter(context.read<AuthCubit>().state).router;
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: "go Router",
       theme: ThemeData(
         useMaterial3: true,

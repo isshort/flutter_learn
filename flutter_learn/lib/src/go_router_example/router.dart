@@ -10,6 +10,7 @@ import 'package:go_router/go_router.dart';
 
 import '../flutter_tips/tips.dart';
 import '../circle_avatar/circle_avatar_page.dart';
+import '../sliding_segment/sliding_segment_control.dart';
 
 class AppRouter {
   final AuthState authState;
@@ -21,7 +22,7 @@ class AppRouter {
         GoRoute(
           path: "/",
           builder: (BuildContext context, GoRouterState state) =>
-              const CircleAvatarPage(),
+              const SlidingSegmentControl(),
         ),
         GoRoute(
           path: "/home1",
