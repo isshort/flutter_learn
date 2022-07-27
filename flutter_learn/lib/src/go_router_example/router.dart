@@ -9,6 +9,7 @@ import 'package:flutter_learn/src/go_router_example/pages/go_register.dart';
 import 'package:go_router/go_router.dart';
 
 import '../flutter_tips/tips.dart';
+import '../circle_avatar/circle_avatar_page.dart';
 
 class AppRouter {
   final AuthState authState;
@@ -20,7 +21,7 @@ class AppRouter {
         GoRoute(
           path: "/",
           builder: (BuildContext context, GoRouterState state) =>
-              const FlutterTips(),
+              const CircleAvatarPage(),
         ),
         GoRoute(
           path: "/home1",
