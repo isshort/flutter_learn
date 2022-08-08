@@ -21,22 +21,54 @@ class _TimeZoneListState extends State<TimeZoneList> {
     return Scaffold(
       appBar: AppBar(title: const Text('TimeZoneList Title')),
       body: ColumnWithSpace(
-        space: 10,
+        space: 3,
         children: [
-          SizedBox(
-            height: 500,
-            child: ListView.builder(
-              itemCount: 20,
-              itemBuilder: (context, index) => const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: ListTile(
-                  textColor: Colors.red,
-                  tileColor: Colors.grey,
-                  title: Text("Hello"),
-                ),
-              ),
-            ),
-          )
+          Container(
+            height: 34,
+            decoration: const BoxDecoration(color: Colors.red),
+          ),
+          Container(
+            height: 34,
+            decoration: const BoxDecoration(color: Colors.blue),
+          ),
+          Container(
+            height: 34,
+            decoration: const BoxDecoration(color: Colors.green),
+          ),
+          Container(
+            height: 34,
+            decoration: const BoxDecoration(color: Colors.black),
+          ),
+          Container(
+            height: 34,
+            decoration: const BoxDecoration(color: Colors.red),
+          ),
+          Container(
+            height: 34,
+            decoration: const BoxDecoration(color: Colors.blue),
+          ),
+          Container(
+            height: 34,
+            decoration: const BoxDecoration(color: Colors.green),
+          ),
+          Container(
+            height: 34,
+            decoration: const BoxDecoration(color: Colors.black),
+          ),
+          // SizedBox(
+          //   height: 500,
+          //   child: ListView.builder(
+          //     itemCount: 20,
+          //     itemBuilder: (context, index) => const Padding(
+          //       padding: EdgeInsets.all(8.0),
+          //       child: ListTile(
+          //         textColor: Colors.red,
+          //         tileColor: Colors.grey,
+          //         title: Text("Hello"),
+          //       ),
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );
@@ -77,9 +109,7 @@ class ColumnWithSpace extends StatelessWidget {
       mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.start,
       children: children
           .map((child) => Padding(
-                padding: EdgeInsets.only(
-                  top: space,
-                ),
+                padding: EdgeInsets.only(top: space, left: 3, right: 3),
                 child: child,
               ))
           .toList(),
