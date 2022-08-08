@@ -18,11 +18,26 @@ class _TimeZoneListState extends State<TimeZoneList> {
 
   @override
   Widget build(BuildContext context) {
-    print(_timeZoneLocation);
     return Scaffold(
       appBar: AppBar(title: const Text('TimeZoneList Title')),
-      body: Column(
-        children: const [],
+      body: ColumnWithSpace(
+        space: 10,
+        children: [
+          SizedBox(
+            height: 500,
+            child: ListView.builder(
+              itemCount: 20,
+              itemBuilder: (context, index) => const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: ListTile(
+                  textColor: Colors.red,
+                  tileColor: Colors.grey,
+                  title: Text("Hello"),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -41,4 +56,33 @@ class TimeZoneLocation {
   final tz.Location locations;
 
   TimeZoneLocation(this.name, this.locations);
+}
+
+class ColumnWithSpace extends StatelessWidget {
+  const ColumnWithSpace({
+    Key? key,
+    this.crossAxisAlignment,
+    this.mainAxisAlignment,
+    required this.children,
+    required this.space,
+  }) : super(key: key);
+  final CrossAxisAlignment? crossAxisAlignment;
+  final MainAxisAlignment? mainAxisAlignment;
+  final List<Widget> children;
+  final double space;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
+      mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.start,
+      children: children
+          .map((child) => Padding(
+                padding: EdgeInsets.only(
+                  top: space,
+                ),
+                child: child,
+              ))
+          .toList(),
+    );
+  }
 }
