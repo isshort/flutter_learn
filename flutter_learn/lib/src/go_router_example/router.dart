@@ -1,16 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_learn/src/feature/home/home.dart';
 import 'package:flutter_learn/src/go_router_example/cubit/auth_cubit.dart';
-import 'package:flutter_learn/src/go_router_example/pages/go_home.dart';
 import 'package:flutter_learn/src/go_router_example/pages/go_home1.dart';
 import 'package:flutter_learn/src/go_router_example/pages/go_login.dart';
 import 'package:flutter_learn/src/go_router_example/pages/go_logout.dart';
 import 'package:flutter_learn/src/go_router_example/pages/go_register.dart';
 import 'package:go_router/go_router.dart';
 
-import '../flutter_tips/tips.dart';
-import '../circle_avatar/circle_avatar_page.dart';
-import '../sliding_segment/sliding_segment_control.dart';
+import '../time_zone/time_zone_list.dart';
 
 class AppRouter {
   final AuthState authState;
@@ -22,7 +18,8 @@ class AppRouter {
         GoRoute(
           path: "/",
           builder: (BuildContext context, GoRouterState state) =>
-              const SlidingSegmentControl(),
+              // const ClipRRectContainer(),
+              const TimeZoneList(),
         ),
         GoRoute(
           path: "/home1",

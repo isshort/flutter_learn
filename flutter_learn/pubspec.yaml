@@ -22,6 +22,7 @@ dependencies:
   graphql_flutter: ^5.1.0
   provider: ^6.0.3
   riverpod: ^1.0.3
+  timezone: ^0.8.0
 
 dev_dependencies:
   flutter_test:
