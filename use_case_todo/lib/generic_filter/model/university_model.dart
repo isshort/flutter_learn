@@ -4,8 +4,11 @@ enum UniversityEnum {
   kabul('Kabul University'),
   wardak('Wardak University');
 
-  final uniqueName;
+  final String uniqueName;
   const UniversityEnum(this.uniqueName);
+
+  static List<String> get universityList =>
+      UniversityEnum.values.map((e) => e.uniqueName).toList();
 }
 
 class UniversityModel {

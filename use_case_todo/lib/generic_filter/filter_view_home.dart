@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:use_case_todo/generic_filter/filter_view.dart';
 
+import 'package:use_case_todo/generic_filter/model/university_model.dart';
+
 class FilterHomeView extends StatefulWidget {
   const FilterHomeView({super.key});
 
@@ -9,9 +11,8 @@ class FilterHomeView extends StatefulWidget {
 }
 
 class _FilterHomeViewState extends State<FilterHomeView> {
-  // List<UniversityEnum> university =
-  //     UniversityEnum.values.map((e) => e).toList();
-  List<String> university = ['Polytechnic', 'Kabul', 'Wardak', 'Manas'];
+  List<String> university = UniversityEnum.universityList;
+
   String _name = '';
   @override
   Widget build(BuildContext context) {
