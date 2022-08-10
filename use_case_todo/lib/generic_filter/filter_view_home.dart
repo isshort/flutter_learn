@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:use_case_todo/generic_filter/filter_view.dart';
-import 'package:use_case_todo/generic_filter/mixin/show_sheet_mixin.dart';
 import 'package:use_case_todo/generic_filter/model/color_model.dart';
 import 'package:use_case_todo/generic_filter/model/university_model.dart';
 
@@ -21,11 +20,16 @@ class _FilterHomeViewState extends State<FilterHomeView> {
       appBar: AppBar(title: Text(_name)),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final result = await ShowSheetMixin.showCustomBottomSheet<IFilter>(
-            context: context,
-            child: FilterView<ColorModel>(values: ColorEnums.models),
-          );
+          // final result = await ShowSheetMixin.showCustomBottomSheet<IFilter>(
+          //   context: context,
+          //   child: FilterView<ColorModel>(values: ColorEnums.models),
+          // );
+          final result = await FilterView<ColorModel>(values: ColorEnums.models)
+              .showSheet(context: context, items: ColorEnums.models);
 
+          final result2 =
+              await FilterView<UniversityModel>(values: UniversityEnum.models)
+                  .showSheet(context: context, items: ColorEnums.models);
           if (result == null) return;
           setState(() {
             _name = result.key;

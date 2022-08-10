@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:use_case_todo/generic_filter/mixin/show_sheet_mixin.dart';
+
 abstract class IFilter {
   String get key;
   int get id;
@@ -56,6 +58,16 @@ class _FilterViewState<T> extends State<FilterView> {
           ),
         )
       ],
+    );
+  }
+}
+
+extension FilterViewExtension on FilterView {
+  Future<T?> showSheet<T extends IFilter>(
+      {required BuildContext context, required List<T> items}) {
+    return ShowSheetMixin.showCustomBottomSheet<T>(
+      context: context,
+      child: FilterView<T>(values: items),
     );
   }
 }
