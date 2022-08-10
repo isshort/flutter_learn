@@ -18,18 +18,18 @@ class FilterView<T extends IFilter> extends StatefulWidget {
 }
 
 class _FilterViewState<T> extends State<FilterView> {
-  late final List<IFilter> _university;
+  late final List<IFilter> _values;
   List<IFilter> filteredItems = [];
   @override
   void initState() {
     super.initState();
-    _university = widget.values;
+    _values = widget.values;
     filteredItems = widget.values;
   }
 
   void _findItems(String name) {
     setState(() {
-      filteredItems = _university
+      filteredItems = _values
           .where(
             (element) => element.key == name,
           )
@@ -39,37 +39,23 @@ class _FilterViewState<T> extends State<FilterView> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          Row(
-            children: const [
-              Spacer(),
-              SizedBox(
-                width: 50,
-                child: Divider(thickness: 10),
-              ),
-              Spacer(),
-              Icon(Icons.close)
-            ],
+    return Column(
+      children: [
+        TextField(
+          onChanged: _findItems,
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: filteredItems.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                onTap: () => Navigator.of(context).pop(filteredItems[index]),
+                title: Text(filteredItems[index].key),
+              );
+            },
           ),
-          TextField(
-            onChanged: _findItems,
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: filteredItems.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  onTap: () => Navigator.of(context).pop(filteredItems[index]),
-                  title: Text(filteredItems[index].key),
-                );
-              },
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

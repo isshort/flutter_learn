@@ -19,10 +19,8 @@ class ColorModel extends IFilter {
   final ColorEnums color;
 
   @override
-  // TODO: implement id
   int get id => color.index;
 
   @override
-  // TODO: implement key
   String get key => color.name;
 }

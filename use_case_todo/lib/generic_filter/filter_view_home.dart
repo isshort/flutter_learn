@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:use_case_todo/generic_filter/filter_view.dart';
+import 'package:use_case_todo/generic_filter/mixin/show_sheet_mixin.dart';
 import 'package:use_case_todo/generic_filter/model/color_model.dart';
-
 import 'package:use_case_todo/generic_filter/model/university_model.dart';
 
 class FilterHomeView extends StatefulWidget {
@@ -21,17 +21,11 @@ class _FilterHomeViewState extends State<FilterHomeView> {
       appBar: AppBar(title: Text(_name)),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final result = await showModalBottomSheet<IFilter>(
+          final result = await ShowSheetMixin.showCustomBottomSheet<IFilter>(
             context: context,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(34),
-              ),
-            ),
-            builder: (context) {
-              return FilterView<ColorModel>(values: ColorEnums.models);
-            },
+            child: FilterView<ColorModel>(values: ColorEnums.models),
           );
+
           if (result == null) return;
           setState(() {
             _name = result.key;
