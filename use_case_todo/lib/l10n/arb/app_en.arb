@@ -1,0 +1,8 @@
+{
+  "@@locale": "en",
+  "@counterAppBarTitle": {
+    "description": "Text shown in the AppBar of the Counter Page"
+  },
+  "counterAppBarTitle": "Counter",
+  "name": "Nematullah"
+}
