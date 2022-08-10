@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:use_case_todo/generic_filter/filter_view.dart';
+import 'package:use_case_todo/generic_filter/model/color_model.dart';
 
 import 'package:use_case_todo/generic_filter/model/university_model.dart';
 
@@ -20,7 +21,7 @@ class _FilterHomeViewState extends State<FilterHomeView> {
       appBar: AppBar(title: Text(_name)),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final result = await showModalBottomSheet<UniversityModel>(
+          final result = await showModalBottomSheet<IFilter>(
             context: context,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
@@ -28,12 +29,12 @@ class _FilterHomeViewState extends State<FilterHomeView> {
               ),
             ),
             builder: (context) {
-              return FilterView<UniversityModel>(values: university);
+              return FilterView<ColorModel>(values: ColorEnums.models);
             },
           );
           if (result == null) return;
           setState(() {
-            _name = result.name.uniqueName;
+            _name = result.key;
           });
         },
         child: const Text('show'),
