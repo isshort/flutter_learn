@@ -11,7 +11,7 @@ class FilterHomeView extends StatefulWidget {
 }
 
 class _FilterHomeViewState extends State<FilterHomeView> {
-  List<String> university = UniversityEnum.universityList;
+  List<UniversityModel> university = UniversityEnum.models;
 
   String _name = '';
   @override
@@ -20,7 +20,7 @@ class _FilterHomeViewState extends State<FilterHomeView> {
       appBar: AppBar(title: Text(_name)),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final result = await showModalBottomSheet<String>(
+          final result = await showModalBottomSheet<UniversityModel>(
             context: context,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
@@ -28,12 +28,12 @@ class _FilterHomeViewState extends State<FilterHomeView> {
               ),
             ),
             builder: (context) {
-              return FilterView(university: university);
+              return FilterView<UniversityModel>(values: university);
             },
           );
-          if (result == null || result.isEmpty) return;
+          if (result == null) return;
           setState(() {
-            _name = result;
+            _name = result.name.uniqueName;
           });
         },
         child: const Text('show'),

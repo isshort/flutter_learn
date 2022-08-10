@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
 
-class FilterView extends StatefulWidget {
+abstract class IFilter {
+  String get key;
+  int get id;
+}
+
+class FilterView<T extends IFilter> extends StatefulWidget {
   const FilterView({
     super.key,
-    required this.university,
+    required this.values,
   });
 
-  final List<String> university;
+  final List<T> values;
 
   @override
   State<FilterView> createState() => _FilterViewState();
 }
 
-class _FilterViewState extends State<FilterView> {
-  late final List<String> _university;
-  List<String> filteredItems = [];
+class _FilterViewState<T> extends State<FilterView> {
+  late final List<IFilter> _university;
+  List<IFilter> filteredItems = [];
   @override
   void initState() {
     super.initState();
-    _university = widget.university;
-    filteredItems = widget.university;
+    _university = widget.values;
+    filteredItems = widget.values;
   }
 
   void _findItems(String name) {
     setState(() {
       filteredItems = _university
           .where(
-            (element) => element.toLowerCase().contains(name.toLowerCase()),
+            (element) => element.key == name,
           )
           .toList();
     });
@@ -58,7 +63,7 @@ class _FilterViewState extends State<FilterView> {
               itemBuilder: (context, index) {
                 return ListTile(
                   onTap: () => Navigator.of(context).pop(filteredItems[index]),
-                  title: Text(filteredItems[index]),
+                  title: Text(filteredItems[index].key),
                 );
               },
             ),
