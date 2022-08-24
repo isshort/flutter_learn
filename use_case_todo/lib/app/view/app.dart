@@ -7,12 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:use_case_todo/counter/counter.dart';
+import 'package:use_case_todo/custom_widget/custom_button_view.dart';
 import 'package:use_case_todo/l10n/l10n.dart';
-
-import 'package:use_case_todo/generic_filter/filter_view.dart';
-
-import 'package:use_case_todo/generic_filter/filter_view_home.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -31,7 +27,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const FilterHomeView(),
+      home: const CustomButtonView(),
     );
   }
 }
