@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multiple_navigator/app/router/root_layout.dart';
-import 'package:multiple_navigator/views/basket/basket_screen.dart';
-import 'package:multiple_navigator/views/home/home_screen.dart';
-import 'package:multiple_navigator/views/profile/profile_edit.dart';
-import 'package:multiple_navigator/views/profile/profile_screen.dart';
-import 'package:multiple_navigator/views/search/search_screen.dart';
 
-import '../../views/home/home_screen_edit.dart';
+import '../../modules/modules.dart';
 
 const _pageKey = ValueKey('_pageKey');
 const _scaffoldKey = ValueKey('_scaffoldKey');

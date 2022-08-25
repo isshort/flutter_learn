@@ -1,0 +1,38 @@
+[
+    {
+        "id":4,
+        "name":"Iphone11",
+        "price":344
+    },
+    {
+        "id":5,
+        "name":"Hp",
+        "price":500
+    },
+
+    {
+        "id":8,
+        "name":"Lenovo",
+        "price":80000
+    },
+    {
+        "id":10,
+        "name":"Dell",
+        "price":600
+    },
+    {
+        "id":11,
+        "name":"Android a12",
+        "price":6000
+    },
+    {
+        "id":12,
+        "name":"Computer",
+        "price":900
+    },
+    {
+        "id":13,
+        "name":"Wok",
+        "price":6054
+    }
+]
