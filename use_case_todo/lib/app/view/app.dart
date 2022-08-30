@@ -10,6 +10,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:use_case_todo/custom_widget/custom_button_view.dart';
 import 'package:use_case_todo/l10n/l10n.dart';
 
+import 'package:use_case_todo/expansion_panel/page/expansion_pagnel_view.dart';
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -27,7 +29,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CustomButtonView(),
+      home: const ExpansionPanelPage(),
     );
   }
 }
