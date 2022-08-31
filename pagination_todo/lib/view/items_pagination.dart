@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-class ItemsScreen extends StatefulWidget {
-  const ItemsScreen({super.key});
-
+class ItemPagination extends StatefulWidget {
+  const ItemPagination({super.key, required this.itemsList});
+  final Future<List<String>> Function(int page) itemsList;
   @override
-  State<ItemsScreen> createState() => _ItemsScreenState();
+  State<ItemPagination> createState() => _ItemPaginationState();
 }
 
-class _ItemsScreenState extends State<ItemsScreen> {
+class _ItemPaginationState extends State<ItemPagination> {
   final _pageSize = 20;
   final PagingController<int, String> _pagingController =
       PagingController(firstPageKey: 0);
@@ -22,7 +22,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
   }
 
   Future<void> _fetchPage(int pageKey) async {
-    final newItems = await itemsList(pageKey);
+    final newItems = await widget.itemsList(pageKey);
     final isLastPage = newItems.length < _pageSize;
     if (isLastPage) {
       _pagingController.appendLastPage(newItems);
@@ -34,15 +34,13 @@ class _ItemsScreenState extends State<ItemsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: PagedListView<int, String>(
-        pagingController: _pagingController,
-        builderDelegate: PagedChildBuilderDelegate<String>(
-          itemBuilder: (context, item, index) => ListTile(
-            leading: const FlutterLogo(),
-            title: Text(item),
-          ),
+    print('Hello ');
+    return PagedListView<int, String>(
+      pagingController: _pagingController,
+      builderDelegate: PagedChildBuilderDelegate<String>(
+        itemBuilder: (context, item, index) => ListTile(
+          leading: const FlutterLogo(),
+          title: Text(item),
         ),
       ),
     );
@@ -53,12 +51,4 @@ class _ItemsScreenState extends State<ItemsScreen> {
     _pagingController.dispose();
     super.dispose();
   }
-}
-
-Future<List<String>> itemsList(int page) async {
-  List<String> items = [];
-  for (int i = 0; i < page + 20; i++) {
-    items.add('Index $i');
-  }
-  return items;
 }

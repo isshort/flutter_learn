@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pagination_todo/items_screen.dart';
+import 'package:pagination_todo/view/items_screen.dart';
 
 void main() {
   runApp(const MyApp());
