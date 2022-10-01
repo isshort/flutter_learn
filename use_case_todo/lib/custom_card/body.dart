@@ -41,7 +41,7 @@ class CardDateInputFormatter extends TextInputFormatter {
     if (newValue.selection.baseOffset == 0) return newValue;
     final buffer = StringBuffer();
     for (var i = 0; i < text.length; i++) {
-      buffer.write(i);
+      buffer.write(text[i]);
       final nonZeroIndex = i + 1;
       if (nonZeroIndex.isEven && nonZeroIndex != text.length) {
         buffer.write('/');
