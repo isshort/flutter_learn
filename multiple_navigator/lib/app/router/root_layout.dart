@@ -1,41 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../adaptive_navigation.dart';
+class ScaffoldWithNavBarItem extends BottomNavigationBarItem {
+  const ScaffoldWithNavBarItem(
+      {required this.initialLocation, required Widget icon, String? label})
+      : super(icon: icon, label: label, backgroundColor: Colors.red);
 
-import 'package:multiple_navigator/app/destination.dart' as my_des;
+  final String initialLocation;
+}
 
-class RootLayout extends StatelessWidget {
-  const RootLayout({Key? key, required this.child, required this.currentIndex})
+const tabs = [
+  ScaffoldWithNavBarItem(
+      initialLocation: '/home', icon: Icon(Icons.home), label: 'Home'),
+  ScaffoldWithNavBarItem(
+      initialLocation: '/search', icon: Icon(Icons.search), label: 'Search'),
+  ScaffoldWithNavBarItem(
+      initialLocation: '/basket',
+      icon: Icon(Icons.shopping_basket),
+      label: 'Basket'),
+  ScaffoldWithNavBarItem(
+      initialLocation: '/profile', icon: Icon(Icons.person), label: 'profile'),
+];
+
+class ScaffoldWithBottomNavBar extends StatefulWidget {
+  const ScaffoldWithBottomNavBar({Key? key, required this.child})
       : super(key: key);
-
   final Widget child;
-  final int currentIndex;
-  static const _navigationRailKey = ValueKey('navigationRailKey');
+  @override
+  State<ScaffoldWithBottomNavBar> createState() =>
+      _ScaffoldWithBottomNavBarState();
+}
+
+class _ScaffoldWithBottomNavBarState extends State<ScaffoldWithBottomNavBar> {
+  int get _currentIndex => _locationToTabIndex(GoRouter.of(context).location);
+
+  int _locationToTabIndex(String location) {
+    final index = tabs
+        .indexWhere((element) => location.startsWith(element.initialLocation));
+    return index < 0 ? 0 : index;
+  }
+
+  void _onItemTapped(BuildContext context, int tabIndex) {
+    if (tabIndex != _currentIndex) {
+      context.go(tabs[tabIndex].initialLocation);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, dimness) {
-        void onSelected(int index) {
-          final destination = my_des.destinations[index];
-          context.go(destination.route);
-        }
-
-        return AdaptiveNavigation(
-          key: _navigationRailKey,
-          selectedIndex: currentIndex,
-          onDestinationSelected: onSelected,
-          destinations: my_des.destinations
-              .map<NavigationDestination>(
-                (e) => NavigationDestination(
-                  icon: e.icon,
-                  label: e.label,
-                ),
-              )
-              .toList(),
-          child: child,
-        );
-      },
+    return Scaffold(
+      body: widget.child,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        items: tabs,
+        onTap: (value) => _onItemTapped(context, value),
+      ),
     );
   }
 }
