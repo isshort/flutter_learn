@@ -12,6 +12,8 @@ import 'package:use_case_todo/rating_bar/rating_bar_view.dart';
 
 import 'package:use_case_todo/custom_card/custom_card_view.dart';
 
+import 'package:use_case_todo/local_search/local_serach_view/local_search_view.dart';
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -29,7 +31,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CustomCardView(),
+      home: const LocalSearchView(),
     );
   }
 }
