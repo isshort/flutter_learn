@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:multiple_navigator/modules/bloc/authentication_bloc.dart';
+import 'package:multiple_navigator/app/bloc/authentication_bloc.dart';
 
 import 'package:multiple_navigator/app/router/routes_screen.dart';
 

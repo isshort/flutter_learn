@@ -15,9 +15,9 @@ import '../../modules/basket/view/basket_screen.dart';
 import '../../modules/profile/profile_edit.dart';
 import '../../modules/profile/profile_screen.dart';
 import '../../modules/search/search_screen.dart';
-import '../../modules/bloc/authentication_bloc.dart';
-import '../../modules/bloc/authentication_event.dart';
-import '../../modules/bloc/authentication_state.dart';
+import '../bloc/authentication_bloc.dart';
+import '../bloc/authentication_event.dart';
+import '../bloc/authentication_state.dart';
 import '../../modules/home/home_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();

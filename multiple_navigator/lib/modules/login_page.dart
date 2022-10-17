@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../type/authentication_status_type.dart';
-import 'bloc/authentication_bloc.dart';
-import 'bloc/authentication_event.dart';
+import '../app/bloc/authentication_bloc.dart';
+import '../app/bloc/authentication_event.dart';
 
 /// after login, home page will show user's info
 class LoginPage extends StatefulWidget {
