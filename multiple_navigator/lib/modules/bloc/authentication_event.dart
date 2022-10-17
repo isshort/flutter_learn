@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:equatable/equatable.dart';
-import '../type/authentication_status_type.dart';
+import '../../type/authentication_status_type.dart';
 
 /// authentication event.
 abstract class AuthenticationEvent extends Equatable {

@@ -4,7 +4,7 @@
 
 import 'package:equatable/equatable.dart';
 
-import '../type/authentication_status_type.dart';
+import '../../type/authentication_status_type.dart';
 
 /// auth state.
 abstract class AuthState extends Equatable {

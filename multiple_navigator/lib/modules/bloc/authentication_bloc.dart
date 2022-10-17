@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../type/authentication_status_type.dart';
+import '../../type/authentication_status_type.dart';
 import 'authentication_event.dart';
 import 'authentication_state.dart';
 
