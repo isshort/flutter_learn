@@ -124,8 +124,11 @@ class AppRouter extends Bloc<AuthenticationEvent, AuthState> {
 /// stream to use go_router refreshListen
 class GoRouterRefreshStream extends ChangeNotifier {
   /// notify to all subscribers.
+  ///
   GoRouterRefreshStream(Stream<dynamic> stream) {
+    print('notify me');
     notifyListeners();
+
     _subscription = stream.asBroadcastStream().listen(
           (dynamic _) => notifyListeners(),
         );
