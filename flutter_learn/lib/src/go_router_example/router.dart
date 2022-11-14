@@ -6,7 +6,7 @@ import 'package:flutter_learn/src/go_router_example/pages/go_logout.dart';
 import 'package:flutter_learn/src/go_router_example/pages/go_register.dart';
 import 'package:go_router/go_router.dart';
 
-import '../time_zone/time_zone_list.dart';
+import '../nested_tabbar/nested_tabbar_view.dart';
 
 class AppRouter {
   final AuthState authState;
@@ -19,7 +19,7 @@ class AppRouter {
           path: "/",
           builder: (BuildContext context, GoRouterState state) =>
               // const ClipRRectContainer(),
-              const TimeZoneList(),
+              const NestedTabBarView(),
         ),
         GoRoute(
           path: "/home1",
